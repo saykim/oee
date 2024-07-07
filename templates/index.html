@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OEE Calculator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="input-section">
+            <div class="row">
+                <label>Calculation Mode</label>
+                <div class="mode-toggle">
+                    <button id="quantityMode" class="mode-btn active">Quantity</button>
+                    <button id="weightMode" class="mode-btn">Weight</button>
+                </div>
+            </div>
+            <div class="row">
+                <label for="shiftStart">Shift Start</label>
+                <div class="input-wrapper">
+                    <input type="time" id="shiftStart" value="08:00">
+                    <i class="fas fa-clock"></i>
+                </div>
+            </div>
+            <div class="row">
+                <label for="shiftEnd">Shift End</label>
+                <div class="input-wrapper">
+                    <input type="time" id="shiftEnd" value="17:00">
+                    <i class="fas fa-clock"></i>
+                </div>
+            </div>
+            <div class="row">
+                <label for="plannedDowntime">Planned Downtime(min)</label>
+                <div class="input-wrapper">
+                    <input type="number" id="plannedDowntime" value="60">
+                    <i class="fas fa-tools"></i>
+                </div>
+            </div>
+            <div class="row">
+                <label for="unplannedDowntime">Unplanned Downtime(min)</label>
+                <div class="input-wrapper">
+                    <input type="number" id="unplannedDowntime" value="0">
+                    <i class="fas fa-exclamation-triangle"></i>
+                </div>
+            </div>
+            <div class="row">
+                <label for="totalProduced" id="totalProducedLabel">Total Parts Produced(ea)</label>
+                <div class="input-wrapper">
+                    <input type="number" id="totalProduced" value="400">
+                    <i class="fas fa-cubes"></i>
+                </div>
+            </div>
+            <div class="row">
+                <label id="idealRateLabel">Ideal Production Rate</label>
+                <div class="ideal-rate">
+                    <div class="sub-input">
+                        <label for="idealRateValue" id="idealRateValueLabel">Rate</label>
+                        <div class="input-wrapper">
+                            <input type="number" id="idealRateValue" step="0.01" required>
+                        </div>
+                    </div>
+                    <span id="idealRateUnitSeparator">/</span>
+                    <div class="sub-input">
+                        <label for="idealRateTime" id="idealRateTimeLabel">Time</label>
+                        <div class="input-wrapper">
+                            <input type="number" id="idealRateTime" step="0.01" required>
+                        </div>
+                    </div>
+                    <span id="idealRateUnit">min</span>
+                </div>
+            </div>
+            
+            <div class="row">
+                <label for="totalScrap" id="totalScrapLabel">Total Scrap(ea)</label>
+                <div class="input-wrapper">
+                    <input type="number" id="totalScrap" value="0">
+                    <i class="fas fa-trash-alt"></i>
+                </div>
+            </div>
+            <button id="calculateBtn" class="calculate-btn">Calculate</button>
+        </div>
+
+        <div class="dashboard">
+            <div class="dashboard-row">
+                <div class="tile" id="oee-tile">
+                    <div class="tile-value" id="oee-value">100%</div>
+                    <div class="tile-label">OEE</div>
+                </div>
+                <div class="tile tile-gray">
+                    <div class="tile-value" id="capacity-value">0</div>
+                    <div class="tile-label">Capacity</div>
+                </div>
+                <div class="tile tile-gray">
+                    <div class="tile-value" id="total-produced-value">0</div>
+                    <div class="tile-label">Total Produced</div>
+                </div>
+            </div>
+            <div class="dashboard-row">
+                <div class="tile" id="performance-tile">
+                    <div class="tile-value" id="performance-value">%</div>
+                    <div class="tile-label">Performance</div>
+                </div>
+                <div class="tile" id="quality-tile">
+                    <div class="tile-value" id="quality-value">%</div>
+                    <div class="tile-label">Quality</div>
+                </div>
+                <div class="tile" id="availability-tile">
+                    <div class="tile-value" id="availability-value">%</div>
+                    <div class="tile-label">Availability</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
