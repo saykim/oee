@@ -1,0 +1,41 @@
+body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    background-color: #f8f9fa;
+}
+
+.navbar-brand, .nav-link {
+    font-weight: bold;
+}
+
+.card-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: rgba(0, 0, 0, .05);
+}
+
+.table thead th {
+    background-color: #343a40;
+    color: #fff;
+}
+
+.table td, .table th {
+    vertical-align: middle;
+}
+
+.btn-primary, .btn-secondary, .btn-danger, .btn-success {
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 25px;
+}
+
+.footer {
+    background-color: #343a40;
+    color: #fff;
+    padding: 10px 0;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
